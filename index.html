@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Task Tracker</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>📋 My Smart Task Tracker</h1>
+    <p class="subtitle">Manage your daily tasks</p>
+
+    <!-- Statistics -->
+    <div class="stats">
+
+      <div class="stat-box">
+        <span id="totalTasks">0</span>
+        <p>Total Tasks</p>
+      </div>
+
+      <div class="stat-box">
+        <span id="completedTasks">0</span>
+        <p>Completed</p>
+      </div>
+
+      <div class="stat-box">
+        <span id="currentStreak">0 🔥</span>
+        <p>Current Streak</p>
+      </div>
+
+    </div>
+
+    <!-- Add Task -->
+    <div class="task-input">
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="Enter a new task..."
+      >
+
+      <button id="addTaskBtn">Add Task</button>
+    </div>
+
+    <p id="message"></p>
+
+    <!-- Task List -->
+    <ul id="taskList"></ul>
+
+    <button id="clearCompletedBtn">
+      Clear Completed
+    </button>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
