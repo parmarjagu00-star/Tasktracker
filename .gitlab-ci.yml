@@ -1,0 +1,26 @@
+stages:
+  - validate
+  - deploy
+
+validate_html:
+  image: node:18
+  stage: validate
+  script:
+    - npm install -g htmlhint
+    - htmlhint "**/*.html"
+  only:
+    - branches
+
+  pages:
+  image: node:18
+  stage: deploy
+  script:
+    - rm -rf public || true
+    - mkdir public
+    - bash -lc 'shopt -s dotglob; for f in *; do if [[ "$f" != "public" && "$f" != ".git" ]]; then cp -r "$f" public/; fi; done'
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 week
+  only:
+    - master
